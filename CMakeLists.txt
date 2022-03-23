@@ -159,6 +159,14 @@ endif()
 
 # CoreAudio
 if (RTAUDIO_API_CORE)
+
+  #cmake -G "Unix Makefiles" -DCMAKE_OSX_SYSROOT=/Developer/SDKs/MacOSX10.7.sdk/ -DCMAKE_OSX_DEPLOYMENT_TARGET=10.7 ../..
+  set(CMAKE_OSX_SYSROOT "/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk")
+  set(CMAKE_CXX_FLAGS "--sysroot ${CMAKE_OSX_SYSROOT} ${CMAKE_CXX_FLAGS}")
+
+  # https://stackoverflow.com/questions/69803659/what-is-the-proper-way-to-build-for-macos-x86-64-using-cmake-on-apple-m1-arm
+  set(CMAKE_OSX_ARCHITECTURES "x86_64")
+
   find_library(COREAUDIO_LIB CoreAudio)
   find_library(COREFOUNDATION_LIB CoreFoundation)
   list(APPEND LINKLIBS ${COREAUDIO_LIB} ${COREFOUNDATION_LIB})
