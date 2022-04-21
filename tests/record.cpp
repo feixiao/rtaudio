@@ -121,6 +121,7 @@ int main( int argc, char *argv[] )
     iParams.deviceId = adc.getDefaultInputDevice();
   else
     iParams.deviceId = device;
+    
   iParams.nChannels = channels;
   iParams.firstChannel = offset;
 
