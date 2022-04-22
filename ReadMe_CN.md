@@ -11,6 +11,12 @@
 + playsaw
 + record 录音保存PCM数据，然后使用playraw播放。
     ```shell
-    # 1 是录音的通道数量，44100是采样率
-    ./record 1 44100
+    # 1 是录音的通道数量
+    # 48000 是采样率
+    # 5.0 是时间
+    # 1 是 设备
+    ./tests/record 1 48000 5.0 1
+
+    # 直接播放PCM
+    ffplay -ar 48000 -channels 1 -f s16le  record.raw 
     ```  
