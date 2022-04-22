@@ -8,6 +8,10 @@
   打印音频设备信息。
 + duplex
 + playraw 播放record采集的PCM数据
+```shell
+# 播放record采集的PCM
+./tests/playraw  1 48000 ./record.raw 
+```
 + playsaw
 + record 录音保存PCM数据，然后使用playraw播放。
     ```shell
